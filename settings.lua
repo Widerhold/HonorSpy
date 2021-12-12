@@ -104,5 +104,20 @@ options.args["purge_data"] = {
 	func = function() HonorSpy:ResetWeek() end,
 }
 
+options.args["sep3"] = {
+	order = 10,
+	type = "description",
+	name = "\n"
+}
+
+options.args["adjustForSoM"] = {
+	order = 11,
+	type = "toggle",
+	name = L["Adjust for SoM"],
+	desc = L["Adjust the Honor Formular for Season of Mastery"],
+	get = function() return HonorSpy.db.factionrealm.adjustForSoM.adjust end,
+	set = function(info, v) HonorSpy.db.factionrealm.adjustForSoM.adjust = v; HonorSpyGUI:PrepareGUI() end,
+}
+
 LibStub("AceConfig-3.0"):RegisterOptionsTable("HonorSpy-options", options)
 LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HonorSpy-options", "HonorSpy")
